@@ -7,6 +7,11 @@ var app = new Vue({
 		newEmail: "",
 		people: []
 	},
+	computed: {
+		momentTime: function momentTime() {
+			return moment(this.timeStamp).format("MMMM Do h:mm:ss a");
+		}
+	},
 	methods: {
 		addPerson: function addPerson() {
 			var newPerson = {

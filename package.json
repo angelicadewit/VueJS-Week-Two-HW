@@ -4,7 +4,8 @@
   "description": "A good starting point for new Circus students",
   "main": "gulpfile.js",
   "dependencies": {
-    "blueimp-md5": "^2.10.0"
+    "blueimp-md5": "^2.10.0",
+    "moment": "^2.22.2"
   },
   "devDependencies": {
     "axios": "^0.18.0",
