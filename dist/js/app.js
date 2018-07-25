@@ -5,38 +5,38 @@ var app = new Vue({
 	data: {
 		newName: "",
 		newEmail: "",
-		people: [],
-		updateTime: ""
+		people: []
 	},
-	// computed: {
-	// 	momentTime: function (){           
-	// 		let zone = moment().utcOffset()
-	// 		let time = moment.utc(this.timestamp).utcOffset(zone)
-	// 		let updateTime = setInterval(this.time, 1000)
-	// 		let formattedTime = time.format(`MMM Do h:mm:ss a`) + `,` + updateTime
-	// 		return formattedTime;
-	// 	}
-	// },
 	methods: {
 		addPerson: function addPerson() {
 			var newPerson = {
 				image: "https://www.gravatar.com/avatar/" + md5(this.newEmail),
 				name: this.newName,
 				email: this.newEmail,
-				// timestamp: new Date().getTime()
-				timestamp: this.captureTime()
+				timestamp: new Date().getTime(),
+				checkin: moment(this.timestamp).format("MMM Do hh:mm:ss a"),
+				lapsedtime: this.sinceTime()
+
 			};
 			this.people.push(newPerson);
 			this.newName = "";
 			this.newEmail = "";
+
 			if (this.people.length > 2) {
 				this.people.splice(this.index, 1);
 			}
+			this.setFocus();
 		},
-		captureTime: function captureTime() {
-			var unixTimeStamp = new Date().getTime();
-			var checkedTime = moment(this.unixTimeStamp).format("MMM Do hh:mm:ss a");
-			return checkedTime;
+		setFocus: function setFocus() {
+			this.$refs.name.focus();
+		},
+		sinceTime: function sinceTime() {
+			var _this = this;
+
+			this.interval = setInterval(function () {
+				var timestamp = _this.timestamp;
+				console.log("hello");
+			}, 1000);
 		}
 	}
 });

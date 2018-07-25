@@ -17,11 +17,12 @@
 				<li v-for="person in people">
 					<img :src="person.image">
 					<h3>{{person.name}}</h3>
-					<p>{{person.timestamp}}</p>
+					<p>{{person.checkin}}</p>
+					<p>{{person.lapsedtime}}</p>
 				</li>
 			</ul>
 			<h2>Check in</h2>
-			<input v-model="newName" placeholder="name">
+			<input v-model="newName" placeholder="name" ref="name">
 			<input v-model="newEmail" placeholder="email" v-on:keyup.enter="addPerson">
 			<button @click="addPerson">Submit Person</button>
 		</div>
