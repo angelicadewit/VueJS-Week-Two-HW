@@ -8,22 +8,23 @@ var app = new Vue({
 		people: [],
 		updateTime: ""
 	},
-	computed: {
-		momentTime: function momentTime() {
-			var zone = moment().utcOffset();
-			var time = moment.utc(this.timestamp).utcOffset(zone);
-			var updateTime = setInterval(this.time, 1000);
-			var formattedTime = time.format("MMM Do h:mm:ss a") + "," + updateTime;
-			return formattedTime;
-		}
-	},
+	// computed: {
+	// 	momentTime: function (){           
+	// 		let zone = moment().utcOffset()
+	// 		let time = moment.utc(this.timestamp).utcOffset(zone)
+	// 		let updateTime = setInterval(this.time, 1000)
+	// 		let formattedTime = time.format(`MMM Do h:mm:ss a`) + `,` + updateTime
+	// 		return formattedTime;
+	// 	}
+	// },
 	methods: {
 		addPerson: function addPerson() {
 			var newPerson = {
 				image: "https://www.gravatar.com/avatar/" + md5(this.newEmail),
 				name: this.newName,
 				email: this.newEmail,
-				timestamp: new Date().getTime()
+				// timestamp: new Date().getTime()
+				timestamp: this.captureTime()
 			};
 			this.people.push(newPerson);
 			this.newName = "";
@@ -31,6 +32,11 @@ var app = new Vue({
 			if (this.people.length > 2) {
 				this.people.splice(this.index, 1);
 			}
+		},
+		captureTime: function captureTime() {
+			var unixTimeStamp = new Date().getTime();
+			var checkedTime = moment(this.unixTimeStamp).format("MMM Do hh:mm:ss a");
+			return checkedTime;
 		}
 	}
 });
