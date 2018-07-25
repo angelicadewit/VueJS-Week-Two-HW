@@ -4,11 +4,16 @@ var app = new Vue({
 		newName:``,
 		newEmail:``,
 		people: [],
+		updateTime: ``,
 	},
 	computed: {
-		momentTime() {
-		  return moment(this.timeStamp).format(`MMMM Do h:mm:ss a`)
-	  }
+		momentTime: function (){           
+			let zone = moment().utcOffset()
+			let time = moment.utc(this.timestamp).utcOffset(zone)
+			let updateTime = setInterval(this.time, 1000)
+			let formattedTime = time.format(`MMM Do h:mm:ss a`) + `,` + updateTime
+			return formattedTime;
+		}
 	},
 	methods:{
 		addPerson: function(){
@@ -24,6 +29,6 @@ var app = new Vue({
 			if (this.people.length > 2){
 				this.people.splice(this.index, 1)
 			}
-		}
+		},
 	}
 })

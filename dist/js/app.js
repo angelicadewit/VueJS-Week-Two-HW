@@ -5,11 +5,16 @@ var app = new Vue({
 	data: {
 		newName: "",
 		newEmail: "",
-		people: []
+		people: [],
+		updateTime: ""
 	},
 	computed: {
 		momentTime: function momentTime() {
-			return moment(this.timeStamp).format("MMMM Do h:mm:ss a");
+			var zone = moment().utcOffset();
+			var time = moment.utc(this.timestamp).utcOffset(zone);
+			var updateTime = setInterval(this.time, 1000);
+			var formattedTime = time.format("MMM Do h:mm:ss a") + "," + updateTime;
+			return formattedTime;
 		}
 	},
 	methods: {
