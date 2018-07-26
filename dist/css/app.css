@@ -1,3 +1,160 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}*{box-sizing:border-box}html,body{min-height:100vh}body{background:white;font-family:Helvetica, Arial, sans-serif;border:3vw solid black;padding:3vw}h1{font-size:7vw;font-weight:bold;text-align:center}ul{display:flex;flex-wrap:wrap;align-content:flex-start}ul li{text-align:center;width:250px;border:1px solid #999;border-radius:10px;padding:10px;margin:10px 0}ul li h3{font-size:18pt;font-weight:bold}ul li p{font-size:12pt;color:#999}h2{font-size:4vw;margin-top:100px}input{font-size:15pt;padding:5px 8px}
+/* 
+==============================================
+CONTENT:	Project Name Here
+AUTHOR:		Your Name Here
+==============================================
+
+TABLE OF CONTENTS:
+
+1. Main Layout
+2. Content
+
+==============================================
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Parisienne");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* 1. Main Layout ================================= */
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	min-height: 100vh;
+}
+
+body {
+	background: url("/dist/img/background.jpg");
+	background-size: cover;
+	font-family: Helvetica, Arial, sans-serif;
+	border: 1vw solid black;
+}
+
+.content {
+	background: rgba(225, 225, 225, 0.4);
+}
+
+#app {
+	padding: 2vw;
+}
+
+h1 {
+	font-size: 7vw;
+	font-weight: bold;
+	text-align: center;
+	font-family: Parisienne;
+}
+
+ul {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
+ul li {
+	text-align: center;
+	width: 250px;
+	border: 1px solid #000;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 10px 0;
+}
+
+ul li h3 {
+	font-size: 18pt;
+	font-weight: bold;
+}
+
+ul li p {
+	font-size: 12pt;
+	color: #000;
+}
+
+h2 {
+	font-size: 4vw;
+	margin-top: 50px;
+	font-family: Parisienne;
+}
+
+form {
+	display: flex;
+}
+
+input {
+	font-size: 15pt;
+	padding: 5px 8px;
+	margin-right: 10px;
+	border: 1px solid black;
+}
+
+.btn-grad {
+	text-transform: uppercase;
+	transition: 0.5s;
+	background-size: 200% auto;
+	color: black;
+	padding: 10px;
+	border: 1px solid black;
+	top: -3px;
+	height: auto;
+	position: relative;
+	font-weight: bold;
+	background-image: linear-gradient(to right, #83a4d4 0%, #b6fbff 51%, #83a4d4 100%);
+}
+
+.btn-grad:hover {
+	background-position: right center;
+}
 
 /*# sourceMappingURL=app.css.map */

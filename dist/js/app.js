@@ -25,7 +25,7 @@ var app = new Vue({
 			this.newName = "";
 			this.newEmail = "";
 
-			if (this.people.length > 2) {
+			if (this.people.length > 5) {
 				this.people.splice(this.index, 1);
 			}
 			this.setFocus();
@@ -36,7 +36,6 @@ var app = new Vue({
 		},
 
 		calculateElapsedTimes: function calculateElapsedTimes() {
-
 			this.people.forEach(function (person) {
 				var currentTime = moment(new Date().getTime());
 				var timeCheckedIn = moment(person.timestamp);

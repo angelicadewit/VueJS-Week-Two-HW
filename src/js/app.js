@@ -11,7 +11,7 @@ var app = new Vue({
 	methods:{
 		addPerson: function(){
 			let newPerson =  {
-				image: `https://www.gravatar.com/avatar/` + md5(this.newEmail),
+				image: "https://www.gravatar.com/avatar/" + md5(this.newEmail),
 				name: this.newName,
 				email: this.newEmail,
 				timestamp: new Date().getTime(),
@@ -23,7 +23,7 @@ var app = new Vue({
 			this.newName = ``
 			this.newEmail = ``
 
-			if (this.people.length > 2){
+			if (this.people.length > 5){
 				this.people.splice(this.index, 1)
 			}
 			this.setFocus()
@@ -34,7 +34,6 @@ var app = new Vue({
 		},
 
 		calculateElapsedTimes: function(){
-
 			this.people.forEach(function(person) {
 				let currentTime = moment(new Date().getTime())
 				let timeCheckedIn = moment(person.timestamp)
