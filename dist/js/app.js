@@ -7,6 +7,9 @@ var app = new Vue({
 		newEmail: "",
 		people: []
 	},
+	created: function created() {
+		setInterval(this.calculateElapsedTimes, 1000);
+	},
 	methods: {
 		addPerson: function addPerson() {
 			var newPerson = {
@@ -14,10 +17,10 @@ var app = new Vue({
 				name: this.newName,
 				email: this.newEmail,
 				timestamp: new Date().getTime(),
-				checkin: moment(this.timestamp).format("MMM Do hh:mm:ss a"),
-				lapsedtime: this.sinceTime()
-
+				elapsedtime: "",
+				checkin: moment(this.timestamp).format("MMM Do hh:mm:ss a")
 			};
+
 			this.people.push(newPerson);
 			this.newName = "";
 			this.newEmail = "";
@@ -27,16 +30,18 @@ var app = new Vue({
 			}
 			this.setFocus();
 		},
+
 		setFocus: function setFocus() {
 			this.$refs.name.focus();
 		},
-		sinceTime: function sinceTime() {
-			var _this = this;
 
-			this.interval = setInterval(function () {
-				var timestamp = _this.timestamp;
-				console.log("hello");
-			}, 1000);
+		calculateElapsedTimes: function calculateElapsedTimes() {
+
+			this.people.forEach(function (person) {
+				var currentTime = moment(new Date().getTime());
+				var timeCheckedIn = moment(person.timestamp);
+				person.elapsedtime = "checked in " + timeCheckedIn.from(currentTime);
+			});
 		}
 	}
 });
