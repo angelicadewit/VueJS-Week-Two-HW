@@ -11,7 +11,7 @@ var app = new Vue({
 	methods:{
 		addPerson: function(){
 			let newPerson =  {
-				image: "https://www.gravatar.com/avatar/" + md5(this.newEmail),
+				image: `https://www.gravatar.com/avatar/` + md5(this.newEmail) + `?d=` + ["identicon", "retro"][Math.round(Math.random())],
 				name: this.newName,
 				email: this.newEmail,
 				timestamp: new Date().getTime(),
@@ -23,7 +23,7 @@ var app = new Vue({
 			this.newName = ``
 			this.newEmail = ``
 
-			if (this.people.length > 5){
+			if (this.people.length > 10){
 				this.people.splice(this.index, 1)
 			}
 			this.setFocus()
